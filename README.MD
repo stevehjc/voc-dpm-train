@@ -4,6 +4,7 @@ fork **voc-dpm (voc-release5)** https://github.com/rbgirshick/voc-dpm
 train **NWPU-VHR-10-dataset** http://www.escience.cn/people/gongcheng/NWPU-VHR-10.html
 
 
+
 系统要求：
 ===================
  * Linux
@@ -28,7 +29,7 @@ https://github.com/opencv/opencv_extra/tree/master/testdata/cv/dpm
 - hdebug.m:训练前的数据处理、训练指令、测试训练模型等代码
 
 
-NWPU-VHR-10检测：
+NWPU-VHR-10检测结果：
 ===================
 - airplane:运行demo.m
 
@@ -36,8 +37,16 @@ NWPU-VHR-10检测：
 
 ![demo_2](./doc/demo_2.png)
 
+- airplane:
 
-- airplane:运行hdebug.m
+```matlab
+%% detect
+load('AerialImages/nwpu_airplane_final.mat');       
+figure(1),visualizemodel(model)
+im = imread('cachedir/nwpu-10/pos/002.jpg');       
+bbox = process(im, model, -0.2);
+figure(2),showboxes(im, bbox); 
+```
 
 ![detect_airplane](./doc/detect_airplane.png)
 
